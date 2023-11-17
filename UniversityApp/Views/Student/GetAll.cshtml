@@ -1,0 +1,28 @@
+﻿@*   at first You have to import model     *@
+@model List<UniversityApp.Models.Student>
+
+@{
+    ViewData["Title"] = "GetAll";
+    List<Student> students = (List<Student>)ViewBag.Students;
+}
+
+<h1>GetAll</h1>
+<h2>Student List</h2>
+<table class="table table-bordered">
+    <!-- alternative-->
+    @*   @foreach (var item in students) *@
+    
+        @foreach (var item in Model)
+    
+    {
+        <tr>
+            <td>@item.StudentName</td>
+            <td>@item.RegNo</td>
+            <td>@item.Email</td>
+            <td>@item.Address</td>
+            <td>@item.DepartmentName</td>
+        </tr>
+    }
+</table>
+
+

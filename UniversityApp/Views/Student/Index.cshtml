@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<h2>@ViewBag.Message</h2>
+<h6>Name: @ViewBag.Student.StudentName</h6>
+<h6>Registration Number: @ViewBag.Student.RegNo</h6>
+<h6>Email:@ViewBag.Student.Email</h6>
+<h6>Address:@ViewBag.Student.Address</h6>
+<h6>Department Name:@ViewBag.Student.DepartmentName</h6>
+
+
+
+
+
+@*
+
+@model UniversityApp.Models.Student
+@{
+    ViewData["Title"] = "SaveStudent";
+}
+
+<h1>Save tudent</h1>
+<h3>@ViewBag.Message</h3>
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>@Html.LabelFor(c=>c.StudentName)</td>
+            <td>@Html.TextBoxFor(c=>c.StudentName, new {@class="form-control"})</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(c=>c.RegNo)</td>
+            <td>@Html.TextBoxFor(c=>c.RegNo, new {@class="form-control"})</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(c=>c.Email)</td>
+            <td>@Html.TextBoxFor(c=>c.Email, new {@class="form-control"})</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(c=>c.Address)</td>
+            <td>@Html.TextBoxFor(c=>c.Address, new {@class="form-control"})</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(c=>c.DepartmentName)</td>
+            <td>@Html.DropDownListFor(c=>c.DepartmentName , new SelectList(ViewBag.DepartmentName,"Id","ShortName"),"---Select---", new{@class="form-control"})</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Save" />
+            </td>
+        </tr>
+    </table>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Reg No</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Department Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.Students)
+            {
+                <tr>
+                    <td>@item.StudentName</td>
+                    <td>@item.RegNo</td>
+                    <td>@item.Email</td>
+                    <td>@item.Address</td>
+                    <td>@item.DepartmentName</td>
+                </tr>
+            }
+        </tbody>
+
+
+
+    </table>
+}
+
+*@
